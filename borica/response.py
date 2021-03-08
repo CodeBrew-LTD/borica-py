@@ -50,13 +50,15 @@ class BoResponse(BoricaSignMixin):
         self.is_verified = self.get_is_verified()
 
     def __getattribute__(self, name: str) -> Any:
-        if name in self.fields:
+        real_attributes = ['raw_data', 'fields']
+        if name not in real_attributes and name in getattr(self, 'fields', []):
             return self.raw_data.get(name.upper())
         return super().__getattribute__(name)
 
     def __setattr__(self, name: str, value: Any) -> None:
-        if name in self.fields:
-            self.raw_data[name.upper()] = value
+        real_attributes = ['raw_data', 'fields']
+        if name not in real_attributes and name in getattr(self, 'fields', []):
+            self.raw_data[name] = value
         else:
             super().__setattr__(name, value)
 
@@ -72,3 +74,10 @@ class BoResponse(BoricaSignMixin):
             return True
         except:
             return False
+
+    @property
+    def __dict__(self):
+        _dict = super().__dict__
+        if 'config' in _dict.keys():
+            _dict.pop('config')
+        return _dict

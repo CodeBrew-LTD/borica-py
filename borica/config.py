@@ -18,12 +18,14 @@ class Config:
             dev_pem: str,
             dev_apgw_pem: str,
             dev_url: str,
+            timezone: str,
     ):
         self.terminal = terminal
         self.merchant = merchant
         self.dev_pem = dev_pem
         self.dev_apgw_pem = dev_apgw_pem
         self.dev_url = dev_url
+        self.timezone = timezone
         self.validate()
 
     @classmethod
@@ -33,7 +35,8 @@ class Config:
             merchant=config['MERCHANT'],
             dev_pem=config['DEV_PEM'],
             dev_apgw_pem=config['DEV_APGW_PEM'],
-            dev_url=config['DEV_URL']
+            dev_url=config['DEV_URL'],
+            timezone=config.get('TIMEZONE', 'Europe/Sofia'),
         )
 
     def validate(self):

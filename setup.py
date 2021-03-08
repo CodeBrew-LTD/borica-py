@@ -17,7 +17,7 @@ def main():
         'author': 'CodeBrew',
         'author_email': 'contact@codebrew.io',
         'packages': find_packages(),
-        'python_requires': '>=3.7',
+        'python_requires': '>=3.6',
         'install_requires': [
             'pyOpenSSL==20.0.*',
         ],
