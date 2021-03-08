@@ -1,6 +1,4 @@
-
-
-class BoricaSignMixin:
+class BoricaSignMixin():
 
     def __init__(self):
         self.sign_fields = []
