@@ -26,7 +26,7 @@ def main():
         'extras_require': {},
         'include_package_data': True,
         'license': 'MIT',
-        'install_scripts': ['bin/configure'],
+        'scripts': ['bin/configure'],
     }
     # Do the actual setup
     setup(**pkg_setup)
