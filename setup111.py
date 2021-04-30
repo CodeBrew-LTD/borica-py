@@ -1,5 +1,7 @@
 import os
+import argparse
 from setuptools import setup, find_packages
+from setuptools.config import read_configuration
 
 
 with open('README.md', 'r') as fh:
@@ -24,10 +26,13 @@ def main():
         'extras_require': {},
         'include_package_data': True,
         'license': 'MIT',
+        'install_scripts': ['bin/configure'],
     }
     # Do the actual setup
     setup(**pkg_setup)
 
 
 if __name__ == '__main__':
+    # parser = argparse.ArgumentParser(description='A test program.')
+    # args = parser.parse_args()
     main()
