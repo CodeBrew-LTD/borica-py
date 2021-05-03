@@ -1,0 +1,22 @@
+{
+ "rc": "00",
+ "eci": "06",
+ "rrn": "107401276215",
+ "card": "5100XXXXXXXX0022",
+ "lang": "",
+ "order": "000001",
+ "action": "0",
+ "amount": "38.40",
+ "trtype": "1",
+ "int_ref": "C61348F9BA807635",
+ "approval": "S00141",
+ "currency": "BGN",
+ "terminal": "V5400159",
+ "statusmsg": "Approved. No errors",
+ "timestamp": "20210315122219",
+ "tran_date": "20210315142219",
+ "card_brand": "MCC",
+ "pares_status": "",
+ "auth_step_res": "VERES_N",
+ "cardholderinfo": ""
+}

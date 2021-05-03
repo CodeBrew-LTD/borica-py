@@ -5,7 +5,6 @@ from OpenSSL import crypto
 from datetime import datetime
 from borica.request import CONFIG
 from borica.base import BoricaSignMixin
-from borica.request.fields import sign_fields
 
 
 class BoRequest(BoricaSignMixin):
@@ -24,7 +23,6 @@ class BoRequest(BoricaSignMixin):
     )
 
     def __setattr__(self, key, value):
-
         self.__dict__[key] = value or getattr(CONFIG, key, value)
 
     def __init__(
@@ -38,19 +36,19 @@ class BoRequest(BoricaSignMixin):
         merch_name="",
         desc='',
         merchant=None,
-        dev_pem=None,
+        pem=None,
         timezone=None,
         timestamp=None,
         terminal=None,
     ) -> None:
 
         self.trtype = str(trtype)
-        self.amount = "{:.2f}".format(amount)
+        self.amount = "{:.2f}".format(float(amount))
         self.currency = str(currency)
         self.country = country
         self.order = order
         self.desc = str(desc)
-        self.dev_pem = dev_pem
+        self.pem = pem
         self.merchant = merchant
         self.merch_name = merch_name
         self.timezone = timezone
@@ -66,9 +64,8 @@ class BoRequest(BoricaSignMixin):
         return uuid.uuid4().hex[:32].upper()
 
     def generate_p_sign(self):
-        with open(self.dev_pem, 'rb') as cf:
-            cert_data = cf.read()
-            pkey = crypto.load_privatekey(crypto.FILETYPE_PEM, cert_data)
+        cert_data = open(self.pem, 'rb').read()
+        pkey = crypto.load_privatekey(crypto.FILETYPE_PEM, cert_data)
         sign = crypto.sign(pkey, self.sign_data, "sha256").hex().upper()
 
         return sign

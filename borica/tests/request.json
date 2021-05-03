@@ -1,0 +1,12 @@
+{
+ "amount": "35.50",
+ "currency": "BGN",
+ "desc": "Test payment request",
+ "terminal": "V5400159",
+ "merch_name": "Test borica",
+ "merchant": "6210029135",
+ "email": "test@test.cf",
+ "trtype": "1",
+ "order": "000001",
+ "country": "BG"
+}

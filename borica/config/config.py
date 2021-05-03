@@ -13,16 +13,16 @@ class Config:
         self,
         terminal: str,
         merchant: str,
-        dev_pem: str,
-        dev_apgw_pem: str,
-        dev_url: str,
+        pem: str,
+        apgw_pem: str,
+        url: str,
         timezone: str,
     ):
         self.terminal = terminal
         self.merchant = merchant
-        self.dev_pem = dev_pem
-        self.dev_apgw_pem = dev_apgw_pem
-        self.dev_url = dev_url
+        self.pem = pem
+        self.apgw_pem = apgw_pem
+        self.url = url
         self.timezone = timezone
 
     @classmethod

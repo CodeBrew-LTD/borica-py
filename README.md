@@ -5,18 +5,17 @@ Python package for integrating borica-based online payments.
 ![borica-py](/docs/img/logo.jpg)
 
 ## Usage
-
-```python
-
-import borica
-
-borica.configure(
-    {
-        'TERMINAL': 'TERMINAL VALUE',
-        'MERCHANT': 'MERCHANT VALUE',
-        'DEV_PEM': '/path/to/certificate/dev.pem',
-        'DEV_APGW_PEM': '/path/to/certificate/apgw_dev.pem',
-        'DEV_URL': 'https://gateway.borica.bg/example-url'
-    }
-)
-```
+   - in order of using this packages you must fill your endpoint details 
+     in to [settings.json](settings.json) file or input them manually during the installation.
+     
+     ###### ***Mandatory parameters are:***
+     ```json
+     {
+       "TERMINAL": "TERMINAL identification number.",
+       "MERCHANT": "MERCHANT identification number.",
+       "PEM": "MERCHANT private key.",
+       "APGW_PEM": "Borica APGW public key.",
+       "URL": "Borica APGW url.",
+       "TIMEZONE": "Current timezone."
+     }
+     ```

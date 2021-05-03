@@ -2,7 +2,7 @@
 from json import loads
 from borica.config.config import configure
 
-CONFIG_DICT = loads(open('configuration.json', 'r').read())
+CONFIG_DICT = loads(open('borica/settings/settings.json', 'r').read())
 configure(CONFIG_DICT)
 
 __all__ = (
