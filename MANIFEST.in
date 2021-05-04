@@ -1,0 +1,2 @@
+recursive-include borica *
+global-exclude *.pyc
