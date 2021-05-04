@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 sign_fields = [
-    'order',
-    'nonce',
+    'terminal',
     'trtype',
     'amount',
-    'terminal',
     'currency',
+    'order',
     'merchant',
     'timestamp',
+    'nonce',
 ]

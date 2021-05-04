@@ -29,7 +29,8 @@ class BoResponse(BoricaSignMixin):
             )
 
     def get_is_verified(self):
-        cert_data = open(CONFIG_DICT['APGW_PEM'], 'rb').read()
+        with open(CONFIG_DICT['APGW_PEM'], 'rb') as data:
+            cert_data = data.read()
         pkey = crypto.load_publickey(crypto.FILETYPE_PEM, cert_data)
         x509 = crypto.X509()
         x509.set_pubkey(pkey)

@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
 sign_fields = [
-    'rc',
-    'rrn',
-    'eci',
-    'nonce',
-    'order',
-    'trtype',
-    'amount',
     'action',
-    'int_ref',
+    'rc',
     'approval',
     'terminal',
+    'trtype',
+    'amount',
     'currency',
-    'timestamp',
+    'order',
+    'rrn',
+    'int_ref',
     'pares_status',
+    'eci',
+    'timestamp',
+    'nonce',
 ]

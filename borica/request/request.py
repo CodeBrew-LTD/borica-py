@@ -29,9 +29,9 @@ class BoRequest(BoricaSignMixin):
         self,
         amount,
         order,
-        currency='BGN',
-        trtype=1,
-        country="BG",
+        currency,
+        trtype,
+        country,
         email='',
         merch_name="",
         desc='',
@@ -41,7 +41,6 @@ class BoRequest(BoricaSignMixin):
         timestamp=None,
         terminal=None,
     ) -> None:
-
         self.trtype = str(trtype)
         self.amount = "{:.2f}".format(float(amount))
         self.currency = str(currency)
@@ -55,16 +54,19 @@ class BoRequest(BoricaSignMixin):
         self.timestamp = (timestamp or datetime.now()).strftime("%Y%m%d%H%M%S")
         self.terminal = terminal
         self.email = email
-        self.nonce = self.generate_nonce()
-        self.sign_data = self.generate_sign_data()
-        self.p_sign = self.generate_p_sign()
 
-    def generate_nonce(self):
+    @property
+    def sign_data(self):
+        return self.generate_sign_data()
 
+    @property
+    def nonce(self):
         return uuid.uuid4().hex[:32].upper()
 
-    def generate_p_sign(self):
-        cert_data = open(self.pem, 'rb').read()
+    @property
+    def p_sign(self):
+        with open(self.pem, 'rb') as data:
+            cert_data = data.read()
         pkey = crypto.load_privatekey(crypto.FILETYPE_PEM, cert_data)
         sign = crypto.sign(pkey, self.sign_data, "sha256").hex().upper()
 

@@ -1,8 +1,1 @@
-{
-  "TERMINAL": "V1800001",
-  "MERCHANT": "1600000001",
-  "PEM": "certs/borica.pem",
-  "APGW_PEM": "certs/borica.pub",
-  "URL": "https://3dsgate-dev.borica.bg/cgi-bin/cgi_link",
-  "TIMEZONE": "Europe/Sofia"
-}
+{"TERMINAL": "V1800001", "MERCHANT": "1600000001", "PEM": "certs/borica.pem", "APGW_PEM": "certs/borica.pub", "URL": "https://3dsgate-dev.borica.bg/cgi-bin/cgi_link", "TIMEZONE": "Europe/Sofia"}
